@@ -4,6 +4,7 @@
   },
   "private": true,
   "dependencies": {
+    "ramda": "^0.25.0",
     "selenium-standalone": "^6.15.3",
     "webdriverio": "^4.13.2"
   },
