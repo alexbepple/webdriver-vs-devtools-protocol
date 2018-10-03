@@ -1,15 +1,21 @@
 import __ from 'hamjest'
-import * as wd from 'webdriverio'
+import * as wdio from 'webdriverio'
 
 describe('WD', () => {
+  let wd, _wd
+  before(() => {
+    _wd = wdio.remote({ desiredCapabilities: { browserName: 'chrome' } }).init()
+    return (wd = _wd)
+  })
+  after(() => _wd.end())
+
+  beforeEach(() => _wd.newWindow('', '', ''))
+  afterEach(() => _wd.close() /*window*/)
+
   it('reads page title', () => {
-    const options = { desiredCapabilities: { browserName: 'chrome' } }
     return wd
-      .remote(options)
-      .init()
       .url('http://localhost:8080')
       .getTitle()
       .then((title) => __.assertThat(title, __.containsString('nginx')))
-      .end()
   })
 })
