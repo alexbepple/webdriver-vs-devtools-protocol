@@ -3,6 +3,11 @@ import * as wdio from 'webdriverio'
 import * as r from 'ramda'
 import pptr from 'puppeteer-core'
 
+const sampleSize = 20
+const url = 'http://localhost:8080'
+const assertOnTitle = (title) =>
+  __.assertThat(title, __.containsString('nginx'))
+
 describe('WD', () => {
   let wd, _wd
   before(() => {
@@ -14,12 +19,12 @@ describe('WD', () => {
   beforeEach(() => _wd.newWindow('', '', ''))
   afterEach(() => _wd.close() /*window*/)
 
-  r.range(0, 20).forEach((i) =>
+  r.range(0, sampleSize).forEach((i) =>
     it(`reads page title #${i}`, () => {
       return wd
-        .url('http://localhost:8080')
+        .url(url)
         .getTitle()
-        .then((title) => __.assertThat(title, __.containsString('nginx')))
+        .then(assertOnTitle)
     })
   )
 })
@@ -39,11 +44,10 @@ describe('DTP', () => {
   beforeEach(async () => (page = await _browser.newPage()))
   afterEach(() => page.close())
 
-  r.range(0, 20).forEach((i) =>
+  r.range(0, sampleSize).forEach((i) =>
     it(`reads page title #${i}`, async () => {
-      await page.goto('http://localhost:8080')
-      const title = await page.title()
-      __.assertThat(title, __.containsString('nginx'))
+      await page.goto(url)
+      assertOnTitle(await page.title())
     })
   )
 })
