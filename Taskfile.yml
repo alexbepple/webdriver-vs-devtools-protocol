@@ -1,6 +1,15 @@
 version: '2'
 
 tasks:
+  default:
+    cmds:
+      - task: create-data
+      - task: analyze-data
+
   create-data:
     cmds:
       - yarn test --reporter json | grep -v 'yarn run' | grep -v 'mocha' | sed 's/Done in .*s.//g' | jq .tests > temp/tests.json
+
+  analyze-data:
+    cmds:
+      - node -r esm src/analyze-data
