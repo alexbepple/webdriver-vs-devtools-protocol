@@ -2,9 +2,8 @@ import __ from 'hamjest'
 import * as wdio from 'webdriverio'
 import * as r from 'ramda'
 import pptr from 'puppeteer-core'
+import { url, sampleSize } from './setup'
 
-const sampleSize = 20
-const url = 'http://localhost:8000'
 const assertOnTitle = (title) => __.assertThat(title, __.is('Greeter'))
 
 describe('WD', () => {

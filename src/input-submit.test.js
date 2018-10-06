@@ -2,9 +2,7 @@ import __ from 'hamjest'
 import * as wdio from 'webdriverio'
 import * as r from 'ramda'
 import pptr from 'puppeteer-core'
-
-const sampleSize = 20
-const url = 'http://localhost:8000'
+import { url, sampleSize } from './setup'
 
 describe('DTP', () => {
   let _browser
