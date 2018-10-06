@@ -1,5 +1,8 @@
 version: '2'
 
+vars:
+  raw: temp/tests.json
+
 tasks:
   default:
     cmds:
@@ -8,8 +11,8 @@ tasks:
 
   create-data:
     cmds:
-      - yarn test --reporter json | grep -v 'yarn run' | grep -v 'mocha' | sed 's/Done in .*s.//g' | jq .tests > temp/tests.json
+      - yarn test --reporter json | grep -v 'yarn run' | grep -v 'mocha' | sed 's/Done in .*s.//g' | jq .tests > {{.raw}}
 
   analyze-data:
     cmds:
-      - node -r esm src/analyze-data
+      - node -r esm src/analyze-data {{.raw}}

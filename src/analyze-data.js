@@ -4,7 +4,7 @@ import * as t from './test-type'
 import * as stat from 'simple-statistics'
 
 const readRaw = r.pipe(
-  () => fs.readFileSync('temp/tests.json', { encoding: 'utf8' }),
+  (fileName) => fs.readFileSync(fileName, { encoding: 'utf8' }),
   JSON.parse
 )
 
@@ -20,4 +20,4 @@ r.pipe(
     })
   ),
   r.tap(console.log)
-)()
+)(process.argv[2])
