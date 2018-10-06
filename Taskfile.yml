@@ -1,0 +1,6 @@
+version: '2'
+
+tasks:
+  create-data:
+    cmds:
+      - yarn test --reporter json | grep -v 'yarn run' | grep -v 'mocha' | sed 's/Done in .*s.//g' | jq .tests > temp/tests.json
