@@ -2,7 +2,7 @@ import __ from 'hamjest'
 import * as wdio from 'webdriverio'
 import * as r from 'ramda'
 import pptr from 'puppeteer-core'
-import { url, sampleSize } from './setup'
+import { baseUrl, sampleSize } from './setup'
 
 describe('DTP', () => {
   let _browser
@@ -21,7 +21,7 @@ describe('DTP', () => {
 
   r.range(0, sampleSize).forEach((i) =>
     it(`types in input field, submits form and verifies result #${i}`, async () => {
-      await page.goto(url)
+      await page.goto(baseUrl)
       await page.type('#name', 'foo')
 
       const navigation = page.waitForNavigation()

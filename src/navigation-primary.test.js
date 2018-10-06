@@ -2,7 +2,7 @@ import __ from 'hamjest'
 import * as wdio from 'webdriverio'
 import * as r from 'ramda'
 import pptr from 'puppeteer-core'
-import { url, sampleSize } from './setup'
+import { baseUrl, sampleSize } from './setup'
 
 const assertOnTitle = (title) => __.assertThat(title, __.is('Greeter'))
 
@@ -20,7 +20,7 @@ describe('WD', () => {
   r.range(0, sampleSize).forEach((i) =>
     it(`reads page title #${i}`, () => {
       return wd
-        .url(url)
+        .url(baseUrl)
         .getTitle()
         .then(assertOnTitle)
     })
@@ -44,7 +44,7 @@ describe('DTP', () => {
 
   r.range(0, sampleSize).forEach((i) =>
     it(`reads page title #${i}`, async () => {
-      await page.goto(url)
+      await page.goto(baseUrl)
       assertOnTitle(await page.title())
     })
   )

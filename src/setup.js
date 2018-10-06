@@ -1,6 +1,6 @@
 import * as r from 'ramda'
 
-export const url = 'http://localhost:8000'
+export const baseUrl = 'http://localhost:8000'
 const parseInt = (x) => Number.parseInt(x, 10)
 export const sampleSize = r.compose(
   parseInt,
