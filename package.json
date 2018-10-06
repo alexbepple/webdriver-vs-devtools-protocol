@@ -1,9 +1,11 @@
 {
   "scripts": {
+    "start:serve": "http-server -p 8000 ./src",
     "test": "mocha --opts mocha.opts"
   },
   "private": true,
   "dependencies": {
+    "http-server": "^0.11.1",
     "puppeteer-core": "^1.8.0",
     "ramda": "^0.25.0",
     "selenium-standalone": "^6.15.3",
