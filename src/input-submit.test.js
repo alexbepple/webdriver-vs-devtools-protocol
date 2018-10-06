@@ -24,6 +24,9 @@ describe('Type in input field, submit form and verify result', () => {
     await page.goto(baseUrl)
     await page.type(selectors.nameInput, name)
 
+    // Interestingly, this is not much faster than
+    // waiting for the content to appear, like in the WD version.
+    // Thus, there is no need to mirror the WD approach.
     const navigation = page.waitForNavigation()
     await page.click(selectors.submitButton)
     await navigation
