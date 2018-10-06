@@ -1,0 +1,22 @@
+<html>
+
+<body>
+
+  <h1 id="greeting"></h1>
+
+  <form method="get">
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="name">
+    <input type="submit" value="Greet">
+  </form>
+
+  <script type="text/javascript">
+    const searchParams = new URLSearchParams(document.location.search.slice(1))
+    const providedName = searchParams.get('name')
+    const nameToGreet = providedName ? providedName : 'World'
+    document.querySelector('#greeting').innerText = `Hello, ${nameToGreet}!`
+  </script>
+
+</body>
+
+</html>
