@@ -4,9 +4,8 @@ import * as r from 'ramda'
 import pptr from 'puppeteer-core'
 
 const sampleSize = 20
-const url = 'http://localhost:8080'
-const assertOnTitle = (title) =>
-  __.assertThat(title, __.containsString('nginx'))
+const url = 'http://localhost:8000'
+const assertOnTitle = (title) => __.assertThat(title, __.is('Greeter'))
 
 describe('WD', () => {
   let wd, _wd
