@@ -19,7 +19,7 @@ Sample size: 100 per cell.
 
 The numbers are medians, not means.
 
-All [median absolute deviations](https://en.wikipedia.org/wiki/Median_absolute_deviation) are ≤ 12. Why MADs? Every first test of a Selenium sessions seems to be getting a penalty of circa 200 ms. Instead of more elaborate measures of dealing with this, I used median and MAD as more robust statistics.
+All [median absolute deviations](https://en.wikipedia.org/wiki/Median_absolute_deviation) are ≤ 12. Why MADs? Every first test of a Selenium session seems to be getting a penalty of circa 200 ms. Instead of more elaborate measures of dealing with this, I used median and MAD as more robust statistics.
 
 I did a [thorough statistical analysis of results for “Read page title”](https://gist.github.com/alexbepple/9534ade960b7a16ff754b462c8236c0a) (only renders nicely on desktop). Of course, it is entirely pointless given the middles and the dispersion.
 
