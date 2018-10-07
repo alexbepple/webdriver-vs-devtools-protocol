@@ -41,10 +41,16 @@ Technical environment
   * Don’t have npx? `npm -g i npx`
 * [jq](https://stedolan.github.io/jq/), e.g. `brew install jq`
 * [go-task](https://taskfile.org/#/), e.g. `brew install go-task`
-  * Of course, you can just execute the commands from the [Taskfile](Taskfile.yml) directly.
+  * Of course, you cahow n just execute the commands from the [Taskfile](Taskfile.yml) directly.
 * If you are not on a Mac, or have your Chrome in a non-standard location, change the path in [src/setup.js](src/setup.js).
 
 
 ### Usage
+
+In one terminal: 
+
+    yarn start
+
+In another:
 
     env SAMPLE_SIZE=100 task
